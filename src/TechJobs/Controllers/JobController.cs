@@ -60,18 +60,25 @@ namespace TechJobs.Controllers
                         Value = newJobViewModel.CoreCompetencies.Where(x => x.Value == newJobViewModel.CoreCompetenciesID.ToString())
                         .Select(x => x.Text).FirstOrDefault()
                     },
+                    Location = new Location
+                    {
+                        ID = newJobViewModel.LocationID,
+                        Value = newJobViewModel.Locations.Where(x => x.Value == newJobViewModel.LocationID.ToString())
+                        .Select(x => x.Text).FirstOrDefault()
+                    },
                     PositionType = new PositionType
                     {
                         ID = newJobViewModel.PositionTypesID,
                         Value = newJobViewModel.PositionTypes.Where(x => x.Value == newJobViewModel.PositionTypesID.ToString())
                         .Select(x => x.Text).FirstOrDefault()
-                    }   
-                 };
+                    }
+
+                };
                 jobData.Jobs.Add(newJob);
                 int lastJob = newJob.ID;
                 return Redirect($"/Job?id={lastJob}");
             };
-            return View();
+            return View(newJobViewModel);
            
            
 

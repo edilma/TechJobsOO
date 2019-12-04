@@ -1,27 +1,32 @@
 ﻿@model TechJobs.ViewModels.NewJobViewModel
-
-<div asp-validation-summary="All"></div>
+<!--<div asp-validation-summary="All"></div> -->
 
 <form asp-controller="Job" asp-action="New" method="post">
     <div class="form-group">
         <label asp-for="Name"></label>
         <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
     </div>
     <div class="form-group">
         <label asp-for="EmployerID"></label>
         <select asp-for="EmployerID" asp-items="Model.Employers"></select>
+        <span asp-validation-for="EmployerID"></span>
     </div>
     <div class="form-group">
         <label asp-for="LocationID"></label>
         <select asp-for="LocationID" asp-items="Model.Locations"></select>
+        <span asp-validation-for="LocationID"></span>
+
     </div>
     <div class="form-group">
         <label asp-for="CoreCompetenciesID"></label>
         <select asp-for="CoreCompetenciesID" asp-items="Model.CoreCompetencies"></select>
+        <span asp-validation-for="CoreCompetenciesID"></span>
     </div>
     <div class="form-group">
         <label asp-for="PositionTypesID"></label>
         <select asp-for="PositionTypesID" asp-items="Model.PositionTypes"></select>
+        <span asp-validation-for="PositionTypesID"></span>
     </div>
 
     @{
