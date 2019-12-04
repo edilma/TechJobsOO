@@ -68,13 +68,16 @@ namespace TechJobs.Controllers
                     }   
                  };
                 jobData.Jobs.Add(newJob);
+                int lastJob = newJob.ID;
+                return Redirect($"/Job?id={lastJob}");
             };
-           int lastJob = jobData.Jobs.Count();
+            return View();
+           
            
 
 
 
-            return RedirectToAction("Index", lastJob);
+            
         }
     }
 }
