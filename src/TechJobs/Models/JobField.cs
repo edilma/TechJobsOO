@@ -21,7 +21,11 @@
         // Provide a basic case-insensitive search
         public bool Contains(string testValue)
         {
-            return Value.ToLower().Contains(testValue.ToLower());
+            if (testValue!=null)
+            {
+                return Value.ToLower().Contains(testValue.ToLower());
+            }
+            return true;
         }
 
         public override string ToString()
